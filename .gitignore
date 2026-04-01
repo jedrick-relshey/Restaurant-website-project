@@ -1,0 +1,36 @@
+# Environment and secrets
+.env
+.env.*
+!.env.example
+
+# Local machine and editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# PHP dependencies
+/vendor/
+
+# Frontend dependencies
+/node_modules/
+
+# Build outputs and caches
+/dist/
+/build/
+/.cache/
+
+# Logs and runtime files
+/storage/logs/*.log
+/storage/*.log
+*.tmp
+*.temp
+
+# Database and backup exports that may contain real data
+*.sql.gz
+*.sql.zip
+*.bak
+*.backup
+
+# XAMPP and OS-generated noise
+*.pid
