@@ -1,1 +1,160 @@
+@media (max-width: 1024px) {
+    .auth-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
 
+    .showcase-image-card {
+        max-width: 100%;
+    }
+
+    .auth-column,
+    .auth-panel-wrap {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .site-header,
+    .page-shell,
+    .site-footer {
+        width: min(calc(100% - 1rem), 100%);
+    }
+
+    .site-header {
+        justify-content: center;
+    }
+
+    .auth-panel-wrap,
+    .showcase-image-card,
+    .dashboard-card {
+        border-radius: 24px;
+    }
+
+    .showcase-copy p {
+        font-size: 1.05rem;
+    }
+
+    .dashboard-meta {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .page-shell {
+        padding: 1rem 0 1.5rem;
+    }
+
+    .auth-layout {
+        min-height: auto;
+        gap: 0;
+        grid-template-columns: 1fr;
+    }
+
+    .showcase-panel {
+        display: none;
+    }
+
+    .auth-column {
+        max-width: 100%;
+    }
+
+    .auth-panel-wrap {
+        padding: 1rem;
+        border-radius: 20px;
+        box-shadow: 0 16px 34px rgba(118, 86, 52, 0.12);
+    }
+
+    .auth-card {
+        padding: 0.5rem 0 0;
+    }
+
+    .auth-tabs {
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+        padding: 0.28rem;
+        border-radius: 14px;
+    }
+
+    .auth-tab {
+        padding: 0.92rem 0.75rem;
+        border-radius: 12px;
+        font-size: 0.95rem;
+    }
+
+    .card-head {
+        margin-bottom: 1rem;
+    }
+
+    .card-head h2 {
+        font-size: 2rem;
+    }
+
+    .card-head p {
+        font-size: 0.94rem;
+    }
+
+    label {
+        gap: 0.45rem;
+    }
+
+    label span {
+        font-size: 0.95rem;
+    }
+
+    .input-shell {
+        min-height: 56px;
+        gap: 0.7rem;
+        padding: 0 0.85rem;
+        border-radius: 12px;
+    }
+
+    input {
+        min-height: 50px;
+        font-size: 0.98rem;
+    }
+
+    .password-toggle {
+        min-width: 38px;
+        min-height: 38px;
+        font-size: 1rem;
+    }
+
+    .auth-options {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 0.75rem;
+        margin-top: 0;
+    }
+
+    .remember-row,
+    .forgot-link {
+        font-size: 0.92rem;
+    }
+
+    .social-grid {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+    }
+
+    .button,
+    .auth-tab {
+        width: 100%;
+    }
+
+    .button {
+        min-height: 54px;
+        font-size: 0.98rem;
+    }
+
+    .divider {
+        margin: 1.2rem 0 1rem;
+        font-size: 0.92rem;
+    }
+
+    .field-error,
+    .field-note {
+        min-height: 16px;
+        font-size: 0.8rem;
+    }
+}

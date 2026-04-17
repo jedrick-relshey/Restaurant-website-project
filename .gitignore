@@ -1,9 +1,8 @@
-# Ignore config folder
-config/ 
-
 # Environment and secrets
 .env
-.env.*
+.env.local
+.env.production
+.env.testing
 !.env.example
 
 # Local machine and editor files
@@ -37,3 +36,9 @@ Thumbs.db
 
 # XAMPP and OS-generated noise
 *.pid
+
+# Composer lock safety (optional)
+composer.phar
+
+# Cache files
+*.cache
