@@ -45,4 +45,4 @@ if (!password_verify($password, (string) $user['password'])) {
 
 loginUser($user);
 clearOldInput();
-redirectToPage('dashboard', 'success', 'Welcome back.');
+redirectToPage('home', 'success', 'Welcome back.');

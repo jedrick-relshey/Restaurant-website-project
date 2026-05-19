@@ -179,7 +179,7 @@ function redirectToPage(string $page, ?string $status = null, ?string $message =
 function ensureGuest(): void
 {
     if (isAuthenticated()) {
-        redirect(routeUrl('dashboard'));
+        redirect(routeUrl('home'));
     }
 }
 
@@ -295,4 +295,60 @@ function userByEmail(string $email): ?array
     $user = $statement->fetch();
 
     return $user === false ? null : $user;
+}
+
+function featuredFoodsTableExists(): bool
+{
+    static $exists;
+
+    if ($exists !== null) {
+        return $exists;
+    }
+
+    try {
+        $statement = db()->query("SHOW TABLES LIKE 'featured_foods'");
+        $exists = $statement->fetchColumn() !== false;
+    } catch (PDOException) {
+        $exists = false;
+    }
+
+    return $exists;
+}
+
+function featuredFoods(int $limit = 0): array
+{
+    if (!featuredFoodsTableExists()) {
+        return [];
+    }
+
+    $sql = 'SELECT id, name, description, image, rating, created_at FROM featured_foods ORDER BY created_at DESC, id DESC';
+
+    if ($limit > 0) {
+        $sql .= ' LIMIT ' . (int) $limit;
+    }
+
+    $statement = db()->query($sql);
+    $records = $statement->fetchAll();
+
+    return is_array($records) ? $records : [];
+}
+
+function featuredFoodById(int $id): ?array
+{
+    if (!featuredFoodsTableExists()) {
+        return null;
+    }
+
+    $statement = db()->prepare(
+        'SELECT id, name, description, image, rating, created_at FROM featured_foods WHERE id = :id LIMIT 1'
+    );
+    $statement->execute(['id' => $id]);
+    $record = $statement->fetch();
+
+    return $record === false ? null : $record;
+}
+
+function publicPath(string $path = ''): string
+{
+    return dirname(__DIR__, 2) . '/public' . ($path !== '' ? '/' . ltrim($path, '/') : '');
 }

@@ -12,6 +12,29 @@
     .auth-panel-wrap {
         max-width: 100%;
     }
+
+    .hero-restaurant,
+    .featured-cms-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .menu-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .featured-carousel-card {
+        grid-template-columns: 1fr;
+        min-height: auto;
+    }
+
+    .featured-food-row {
+        grid-template-columns: 100px minmax(0, 1fr);
+    }
+
+    .featured-food-row-actions {
+        grid-column: 1 / -1;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 }
 
 @media (max-width: 768px) {
@@ -37,6 +60,87 @@
 
     .dashboard-meta {
         grid-template-columns: 1fr;
+    }
+
+    .restaurant-nav-shell {
+        position: relative;
+        align-items: center;
+        padding-top: 0.35rem;
+    }
+
+    .restaurant-nav-left,
+    .restaurant-nav-right {
+        display: none;
+    }
+
+    .brand-mark {
+        flex: 0 0 auto;
+        order: 1;
+    }
+
+    .brand-mark img {
+        width: 92px;
+    }
+
+    .nav-toggle {
+        display: inline-block;
+        margin-left: auto;
+        order: 2;
+    }
+
+    .restaurant-nav-mobile {
+        position: absolute;
+        top: calc(100% + 0.65rem);
+        left: 0;
+        right: 0;
+        display: none !important;
+        padding: 1rem;
+        border-radius: 24px;
+        border: 1px solid var(--border);
+        background: rgba(255, 255, 255, 0.98);
+        box-shadow: 0 18px 34px rgba(118, 86, 52, 0.14);
+        z-index: 20;
+    }
+
+    .restaurant-nav-mobile.is-open {
+        display: grid !important;
+    }
+
+    .restaurant-nav-mobile a {
+        width: 100%;
+        text-align: left;
+    }
+
+    .hero-restaurant,
+    .admin-topbar,
+    .featured-cms-card {
+        padding: 1.4rem;
+        border-radius: 26px;
+    }
+
+    .hero-copy-panel h1 {
+        max-width: 12ch;
+    }
+
+    .hero-info-card,
+    .featured-preview {
+        grid-template-columns: 1fr;
+    }
+
+    .menu-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-page-shell {
+        width: min(calc(100% - 1rem), 100%);
+    }
+
+    .category-wrap {
+        grid-template-columns: 1fr;
+    }
+
+    .category-arrow {
+        display: none;
     }
 }
 
@@ -156,5 +260,40 @@
     .field-note {
         min-height: 16px;
         font-size: 0.8rem;
+    }
+
+    .hero-restaurant,
+    .featured-carousel-card {
+        gap: 1rem;
+    }
+
+    .hero-copy-panel {
+        min-height: auto;
+        padding: 0 0 1.5rem;
+    }
+
+    .hero-visual-panel,
+    .featured-carousel-card {
+        min-height: 360px;
+    }
+
+    .featured-carousel-media img {
+        width: min(100%, 360px);
+    }
+
+    .category-track {
+        grid-auto-columns: minmax(180px, 80%);
+    }
+
+    .featured-food-row {
+        grid-template-columns: 1fr;
+    }
+
+    .featured-food-row img {
+        height: 180px;
+    }
+
+    .featured-food-row-actions {
+        grid-template-columns: 1fr;
     }
 }
