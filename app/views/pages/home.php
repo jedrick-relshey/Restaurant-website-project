@@ -18,14 +18,14 @@ if ($featuredFoodsForView === []) {
             'id' => 0,
             'name' => 'Pepper Roast Bites',
             'description' => 'Slow-roasted beef tossed in savory glaze, made for bold appetites.',
-            'image' => assetUrl('images/plate-2.png'),
+            'image' => assetUrl('images/plate-1.png'),
             'rating' => 4.8,
         ],
         [
             'id' => 0,
             'name' => 'Creamy Garden Pasta',
             'description' => 'Silky comfort pasta with a rich, velvety sauce and fresh seasonal garnish.',
-            'image' => assetUrl('images/plate-3.png'),
+            'image' => assetUrl('images/plate-1.png'),
             'rating' => 4.7,
         ],
     ];
@@ -111,18 +111,10 @@ $categoryCards = [
 >
     <section class="hero-restaurant" id="home">
         <div class="hero-copy-panel">
-            <h1><span>Flavor</span> that wows the palate</h1>
+            <h1><span>Good</span> Food, Great <span>Mood</span></h1>
             <div class="hero-actions">
                 <a class="button button-primary" href="#favorite-menu">View Menu</a>
             </div>
-            <article class="hero-info-card" id="delivery">
-                <div class="hero-info-icon" aria-hidden="true">
-                    <span></span>
-                </div>
-                <div>
-                    <strong>Delivery And Pickup Info</strong>
-                </div>
-            </article>
         </div>
 
         <div class="hero-visual-panel">
@@ -131,6 +123,11 @@ $categoryCards = [
             <?php if ($featuredFoodsForView !== []): ?>
                 <?php $firstSlide = $featuredFoodsForView[0]; ?>
                 <div class="featured-carousel-card" data-featured-carousel>
+                    <div class="featured-carousel-copy">
+                        <span class="featured-carousel-kicker">Featured Dish</span>
+                        <h2 data-carousel-name><?= h((string) $firstSlide['name']) ?></h2>
+                        <p data-carousel-description><?= h((string) $firstSlide['description']) ?></p>
+                    </div>
                     <div class="featured-carousel-media">
                         <img
                             data-carousel-image
@@ -148,7 +145,6 @@ $categoryCards = [
             <div>
                 <h2>Order By Categories</h2>
             </div>
-            <a class="text-link category-link" href="#favorite-menu">View All Categories</a>
         </div>
 
         <div class="category-wrap">
@@ -169,10 +165,7 @@ $categoryCards = [
         <div class="section-heading">
             <h2 class="favorite-title"><span class="favorite-icon" aria-hidden="true">🍴</span> Favorite <span>Menu</span></h2>
             <div class="menu-tools">
-                <a class="text-link" href="#menu">Explore Menu</a>
-                <div class="cart-badge">
-                    Cart <span data-cart-count>0</span>
-                </div>
+                <a class="text-link category-link" href="#favorite-menu">Explore Menu</a>
             </div>
         </div>
 

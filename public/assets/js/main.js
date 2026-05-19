@@ -72,8 +72,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const categoryPrev = document.querySelector('[data-category-prev]');
         const categoryNext = document.querySelector('[data-category-next]');
         const menuGrid = document.querySelector('[data-menu-grid]');
-        const cartCount = document.querySelector('[data-cart-count]');
-        let cartTotal = 0;
 
         if (navToggle instanceof HTMLButtonElement && navMenu instanceof HTMLElement) {
             navToggle.addEventListener('click', () => {
@@ -162,31 +160,28 @@ document.addEventListener('DOMContentLoaded', () => {
                         <p>${item.description}</p>
                         <div class="menu-card-meta">
                             <span class="menu-tag">${item.category}</span>
-                            <button class="button button-primary" type="button" data-add-cart>Add to Cart</button>
+                            <button class="menu-order-button" type="button">Order Now</button>
                         </div>
                     </div>
                 </article>
             `).join('');
-
-            menuGrid.querySelectorAll('[data-add-cart]').forEach((button) => {
-                button.addEventListener('click', () => {
-                    cartTotal += 1;
-
-                    if (cartCount instanceof HTMLElement) {
-                        cartCount.textContent = String(cartTotal);
-                    }
-                });
-            });
         }
 
         if (Array.isArray(featuredFoods) && featuredFoods.length > 0) {
             const carousel = document.querySelector('[data-featured-carousel]');
             const imageNode = document.querySelector('[data-carousel-image]');
+            const nameNode = document.querySelector('[data-carousel-name]');
+            const descriptionNode = document.querySelector('[data-carousel-description]');
             let activeIndex = 0;
             let intervalId = null;
 
             const renderSlide = (index) => {
-                if (!(carousel instanceof HTMLElement) || !(imageNode instanceof HTMLImageElement)) {
+                if (
+                    !(carousel instanceof HTMLElement) ||
+                    !(imageNode instanceof HTMLImageElement) ||
+                    !(nameNode instanceof HTMLElement) ||
+                    !(descriptionNode instanceof HTMLElement)
+                ) {
                     return;
                 }
 
@@ -197,6 +192,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 window.setTimeout(() => {
                     imageNode.src = item.image;
                     imageNode.alt = item.name;
+                    nameNode.textContent = item.name;
+                    descriptionNode.textContent = item.description;
                     carousel.classList.remove('is-transitioning');
                 }, 220);
             };

@@ -131,6 +131,10 @@
         grid-template-columns: 1fr;
     }
 
+    .favorite-menu-section {
+        padding: 1.8rem 1rem 2rem;
+    }
+
     .admin-page-shell {
         width: min(calc(100% - 1rem), 100%);
     }
@@ -277,8 +281,18 @@
         min-height: 360px;
     }
 
+    .featured-carousel-copy {
+        position: static;
+        width: 100%;
+        margin-top: 0.75rem;
+    }
+
     .featured-carousel-media img {
         width: min(100%, 360px);
+    }
+
+    .favorite-title {
+        font-size: 1.8rem;
     }
 
     .category-track {
