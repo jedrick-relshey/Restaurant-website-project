@@ -9,22 +9,22 @@ if ($featuredFoodsForView === []) {
     $featuredFoodsForView = [
         [
             'id' => 0,
-            'name' => 'Signature Snapper',
-            'description' => 'A crisp, golden fillet plated with fresh herbs and a bright citrus finish.',
+            'name' => 'lorem ipsum dolor sit amet',
+            'description' => 'lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
             'image' => assetUrl('images/plate-1.png'),
             'rating' => 4.9,
         ],
         [
             'id' => 0,
-            'name' => 'Pepper Roast Bites',
-            'description' => 'Slow-roasted beef tossed in savory glaze, made for bold appetites.',
+            'name' => 'lorem ipsum dolor sit amet',
+            'description' => 'lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
             'image' => assetUrl('images/plate-1.png'),
             'rating' => 4.8,
         ],
         [
             'id' => 0,
-            'name' => 'Creamy Garden Pasta',
-            'description' => 'Silky comfort pasta with a rich, velvety sauce and fresh seasonal garnish.',
+            'name' => 'lorem ipsum dolor sit amet',
+            'description' => 'lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
             'image' => assetUrl('images/plate-1.png'),
             'rating' => 4.7,
         ],
@@ -49,45 +49,45 @@ $featuredFoodsJson = json_encode(
 
 $menuItems = [
     [
-        'name' => 'Snapper Delight',
+        'name' => 'lorem ipsum',
         'price' => 10.50,
-        'description' => 'Crisp skin snapper with a light citrus glaze and roasted vegetables.',
-        'image' => assetUrl('images/plate-1.png'),
+        'description' => 'lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        'image' => assetUrl('images/food-1.jpg'),
         'category' => 'Mains',
     ],
     [
-        'name' => 'Pepper Beef Bites',
+        'name' => 'lorem ipsum',
         'price' => 12.25,
-        'description' => 'Tender beef cubes tossed in a rich pepper sauce with caramelized onions.',
-        'image' => assetUrl('images/plate-2.png'),
+        'description' => 'lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        'image' => assetUrl('images/food-2.jpg'),
         'category' => 'Sides',
     ],
     [
-        'name' => 'Creamy Garden Pasta',
+        'name' => 'lorem ipsum',
         'price' => 9.95,
-        'description' => 'Silky cream sauce, herbs, and seasonal vegetables folded into warm pasta.',
-        'image' => assetUrl('images/plate-3.png'),
+        'description' => 'lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        'image' => assetUrl('images/food-3.jpg'),
         'category' => 'Pasta',
     ],
     [
-        'name' => 'Harvest Salad Bowl',
+        'name' => 'lorem ipsum',
         'price' => 8.75,
-        'description' => 'Fresh greens, roasted vegetables, and zesty dressing with crunchy toppings.',
-        'image' => assetUrl('images/plate-1.png'),
+        'description' => 'lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        'image' => assetUrl('images/food-4.jpg'),
         'category' => 'Salads',
     ],
     [
-        'name' => 'Ham Sandwich Stack',
+        'name' => 'lorem ipsum',
         'price' => 10.50,
-        'description' => 'House-baked bread layered with smoked ham, cheese, and crisp lettuce.',
-        'image' => assetUrl('images/plate-2.png'),
+        'description' => 'lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        'image' => assetUrl('images/food-1.jpg'),
         'category' => 'Mains',
     ],
     [
-        'name' => 'Golden Soup Bowl',
+        'name' => 'lorem ipsum',
         'price' => 7.90,
-        'description' => 'Comforting vegetable broth with pasta ribbons and herbs.',
-        'image' => assetUrl('images/plate-3.png'),
+        'description' => 'lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        'image' => assetUrl('images/food-2.jpg'),
         'category' => 'Sides',
     ],
 ];
@@ -109,41 +109,25 @@ $categoryCards = [
     data-featured-foods='<?= h($featuredFoodsJson ?: '[]') ?>'
     data-menu-items='<?= h($menuItemsJson ?: '[]') ?>'
 >
-    <section class="hero-restaurant" id="home">
-        <div class="hero-copy-panel">
-            <h1><span>Good</span> Food, Great <span>Mood</span></h1>
-            <div class="hero-actions">
-                <a class="button button-primary" href="#favorite-menu">View Menu</a>
+    <section class="featured-carousel-section" id="featured">
+        <div class="featured-carousel" data-featured-carousel>
+            <img 
+                class="featured-carousel-image" 
+                data-carousel-image 
+                src="<?= h($featuredFoodsForView[0]['image'] ?? '') ?>" 
+                alt="<?= h($featuredFoodsForView[0]['name'] ?? '') ?>"
+            >
+            <div class="featured-carousel-content">
+                <h2 data-carousel-name><?= h($featuredFoodsForView[0]['name'] ?? '') ?></h2>
+                <p data-carousel-description><?= h($featuredFoodsForView[0]['description'] ?? '') ?></p>
             </div>
-        </div>
-
-        <div class="hero-visual-panel">
-            <div class="hero-bg-dots" aria-hidden="true"></div>
-
-            <?php if ($featuredFoodsForView !== []): ?>
-                <?php $firstSlide = $featuredFoodsForView[0]; ?>
-                <div class="featured-carousel-card" data-featured-carousel>
-                    <div class="featured-carousel-copy">
-                        <span class="featured-carousel-kicker">Featured Dish</span>
-                        <h2 data-carousel-name><?= h((string) $firstSlide['name']) ?></h2>
-                        <p data-carousel-description><?= h((string) $firstSlide['description']) ?></p>
-                    </div>
-                    <div class="featured-carousel-media">
-                        <img
-                            data-carousel-image
-                            src="<?= h((string) $firstSlide['image']) ?>"
-                            alt="<?= h((string) $firstSlide['name']) ?>"
-                        >
-                    </div>
-                </div>
-            <?php endif; ?>
         </div>
     </section>
 
     <section class="category-section" id="menu">
         <div class="section-heading">
             <div>
-                <h2>Order By Categories</h2>
+                <h2>Categories</h2>
             </div>
         </div>
 
